@@ -33,12 +33,7 @@ export default class TableComponent extends React.Component {
  }
 
  
- handleChange = (pagination, filters) => {
-    console.log('Various parameters', pagination, filters);
-    this.setState({
-      filteredInfo: filters
-    });
-  }
+
    
  componentWillMount() {
    
@@ -81,6 +76,13 @@ export default class TableComponent extends React.Component {
    }
 
  render() {
+	 
+	  handleChange = (pagination, filters) => {
+    console.log('Various parameters', pagination, filters);
+    this.setState({
+      filteredInfo: filters
+    });
+  }
    
   // var data = { render: text => <a href="#">{text}</a>};
   let tableData = (<Table {...this.state}

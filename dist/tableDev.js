@@ -37,19 +37,9 @@ var TableComponent = (function (_React$Component) {
   _inherits(TableComponent, _React$Component);
 
   function TableComponent() {
-    var _this = this;
-
     _classCallCheck(this, TableComponent);
 
     _get(Object.getPrototypeOf(TableComponent.prototype), 'constructor', this).call(this);
-
-    this.handleChange = function (pagination, filters) {
-      console.log('Various parameters', pagination, filters);
-      _this.setState({
-        filteredInfo: filters
-      });
-    };
-
     this.state = {
       tableData: [],
       bordered: true,
@@ -108,6 +98,14 @@ var TableComponent = (function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _this = this;
+
+      handleChange = function (pagination, filters) {
+        console.log('Various parameters', pagination, filters);
+        _this.setState({
+          filteredInfo: filters
+        });
+      };
 
       // var data = { render: text => <a href="#">{text}</a>};
       var tableData = _react2['default'].createElement(_antd.Table, _extends({}, this.state, {
