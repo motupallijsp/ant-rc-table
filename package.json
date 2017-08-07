@@ -16,6 +16,7 @@
     "prepublish": "npm run compile"
   },
   "dependencies": {
+    "ant-rc-table": "^0.0.2",
     "antd": "^2.12.4",
     "react": "^15.6.1"
   }
