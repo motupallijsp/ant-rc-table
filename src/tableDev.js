@@ -1,6 +1,5 @@
 import React from 'react'
 import {Row, Col, Table, Alert, Icon} from 'antd';
-import {Link} from 'react-router';
 import {Spin} from 'antd';
 import {message, notification} from 'antd';
 var Constant = require('./constants');
