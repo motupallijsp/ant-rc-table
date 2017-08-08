@@ -57,7 +57,9 @@ export default class TableComponent extends React.Component {
 			for (var i in item) {
 			if (item.hasOwnProperty(i)) {
 				var first = item[i];
-				dataArray.push(first);
+				if(first != null){
+				  dataArray.push(first);
+				 }
 				}
 			}
 
