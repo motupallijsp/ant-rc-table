@@ -139,18 +139,10 @@ var TableComponent = (function (_React$Component) {
 	}, {
 		key: 'render',
 		value: function render() {
-			var _this = this;
-
-			handleChange = function (pagination, filters) {
-				_this.setState({
-					filteredInfo: filters
-				});
-			};
 
 			var tableData = _react2['default'].createElement(_antd.Table, _extends({}, this.state, {
 				columns: this.state.columnsJsonObj,
 				dataSource: this.props.tableJSONData,
-				onChange: this.handleChange,
 				pagination: {
 					pageSize: this.state.noOfRecords
 				},

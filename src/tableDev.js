@@ -117,16 +117,9 @@ export default class TableComponent extends React.Component {
 
  render() {
 	 
-	 handleChange = (pagination, filters) => {
-    this.setState({
-      filteredInfo: filters
-    });
-  }
-	
   let tableData = (<Table {...this.state}
    columns={this.state.columnsJsonObj}
    dataSource={this.props.tableJSONData}
-   onChange={this.handleChange}
    pagination={{
    pageSize: this.state.noOfRecords
   }}
