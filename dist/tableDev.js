@@ -81,9 +81,7 @@ var TableComponent = (function (_React$Component) {
 				for (var i in item) {
 					if (item.hasOwnProperty(i)) {
 						var first = item[i];
-						if (first != null) {
-							dataArray.push(first);
-						}
+						dataArray.push(first);
 					}
 				}
 
