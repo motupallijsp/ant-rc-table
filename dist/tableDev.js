@@ -24,8 +24,6 @@ var _react2 = _interopRequireDefault(_react);
 
 var _antd = require('antd');
 
-var _reactRouter = require('react-router');
-
 var TableComponent = (function (_React$Component) {
 	_inherits(TableComponent, _React$Component);
 
