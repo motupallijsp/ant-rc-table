@@ -26,8 +26,6 @@ var _antd = require('antd');
 
 var _reactRouter = require('react-router');
 
-var Constant = require('./constants');
-
 var TableComponent = (function (_React$Component) {
 	_inherits(TableComponent, _React$Component);
 
@@ -37,18 +35,20 @@ var TableComponent = (function (_React$Component) {
 		_get(Object.getPrototypeOf(TableComponent.prototype), 'constructor', this).call(this);
 		this.state = {
 			tableData: [],
-			bordered: false,
 			loading: false,
-			pagination: false,
-			size: null,
-			title: null,
-			showHeader: false,
-			footer: null,
 			rowSelection: {},
 			columnsJsonObj: [],
+			filteredInfo: null,
+			columnsDataList: null,
+			inputJSONState: null,
 			noOfRecords: null,
 			scrollData: null,
-			filteredInfo: null
+			pagination: null,
+			bordered: null,
+			title: 'Table Component',
+			footer: 'Table footer',
+			showHeader: null,
+			size: 'default'
 		};
 	}
 
@@ -56,21 +56,22 @@ var TableComponent = (function (_React$Component) {
 		key: 'componentWillMount',
 		value: function componentWillMount() {
 
-			this.setState({ scrollData: Constant.scrollData });
-			this.setState({ noOfRecords: Constant.noOfRecords });
-			this.setState({ pagination: Constant.pagination });
-			this.setState({ bordered: Constant.bordered });
-			this.setState({ title: Constant.title });
-			this.setState({ footer: Constant.footer });
-			this.setState({ showHeader: Constant.showHeader });
-			this.setState({ size: Constant.size });
-			this.setState({ tableData: this.props.tableJSONData });
+			this.setState({ scrollData: this.props.scrollData });
+			this.setState({ noOfRecords: this.props.noOfRecords });
+			this.setState({ pagination: this.props.pagination });
+			this.setState({ bordered: this.props.bordered });
+			this.setState({ title: this.props.title });
+			this.setState({ footer: this.props.footer });
+			this.setState({ showHeader: this.props.showHeader });
+			this.setState({ size: this.props.size });
+			this.setState({ tableJSONData: this.props.tableJSONData });
+			this.setState({ columnsDataList: this.props.tableColumnList });
 
 			var columnsList = [];
 			var columnValueList = [];
 			var columnFilterTableList = [];
 			var tableFirstRow = this.props.tableJSONData[0];
-			var tableFilterData = this.props.tableJSONData;
+			this.tableFilterData = this.props.tableJSONData;
 			var filterData = [];
 			var emptyData = [];
 
@@ -81,6 +82,7 @@ var TableComponent = (function (_React$Component) {
 				for (var i in item) {
 					if (item.hasOwnProperty(i)) {
 						var first = item[i];
+						//	if(first != null)
 						dataArray.push(first);
 					}
 				}
@@ -118,7 +120,7 @@ var TableComponent = (function (_React$Component) {
 					var link = "text => <a>{text}</a>";
 					header["title"] = columnsList[key];
 					header["dataIndex"] = columnsList[key];
-					header["width"] = Constant.scrollData;
+					//	header ["width"] = this.state.scrollData;
 					header["filters"] = filterData;
 					//	header ["render"] = "<a></a>";
 					//	header["render: text => <a>{text}</a>"]
@@ -143,11 +145,9 @@ var TableComponent = (function (_React$Component) {
 				dataSource: this.props.tableJSONData,
 				pagination: {
 					pageSize: this.state.noOfRecords
-				},
+				}
 
-				scroll: {
-					y: this.state.scrollData
-				} }));
+			}));
 
 			var filteredInfo = this.state.filteredInfo;
 
