@@ -6,6 +6,7 @@ import {message, notification} from 'antd';
 
 export default class TableComponent extends React.Component {
 
+// This is React js constructor to set the varible delcaration and initliazation
  constructor() {
   super();
   this.state = {
