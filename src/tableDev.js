@@ -26,7 +26,7 @@ export default class TableComponent extends React.Component {
 	size:'default'		
   }
  }
-   
+   // This is componentWillMount() method. its set the default values
  componentWillMount() {
 
 	this.setState( { scrollData : this.props.scrollData });
